@@ -1,6 +1,6 @@
 const LandingPage = () => {
   return (
-    <section className="w-full bg-[#3a3a3af9] flex flex justify-start item-center px-27 overflow-hidden">
+    <section className="w-full bg-[#3a3a3afe] flex flex justify-start item-center px-27 overflow-hidden">
       <div className="relative my-63 gap-3 w-23/24">
         <div className="absolute z-10 md:top-27 md:right-190 w-80 h-37 bg-[#da19319b] rounded-full"></div>
         <h1 className="font-bold text-6xl text-white">hello! im <span className="w-lg text-[#cf162e]">Sohan</span></h1>
