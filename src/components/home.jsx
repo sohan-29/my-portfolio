@@ -2,7 +2,7 @@ import { useState } from "react";
 import LandingPage from "./landingPage";
 
 const Header = () => {
-  const [showNavs, setShowNavs] = useState(true);
+  const [showNavs, setShowNavs] = useState(false);
   return (
     <div className="flex flex-col sm:flex-row justify-between px-5 sm:px-18 py-3 bg-[#222222] w-full">
       <span className="sm:mr-18 lg:mx-9 sm:text-3xl text-xl font-bold text-[#cf162e] flex justify-between">@sohan
