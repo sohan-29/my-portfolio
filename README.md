@@ -1,12 +1,43 @@
-# React + Vite
+# My Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal portfolio website built with React and Vite. It showcases my projects, skills, and contact information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design with a navigation menu that toggles on small screens.
+- Sections for Home, About, Skills, Projects, and Contact.
+- Built using React functional components and Tailwind CSS for styling.
+- Fast development with Vite and hot module replacement (HMR).
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To start the development server locally:
+
+```bash
+npm install
+npm run dev
+```
+
+This will start the app at http://localhost:3000 where you can view your changes live.
+
+## Build and Deployment
+
+To build the project for production:
+
+```bash
+npm run build
+npm run deploy
+```
+
+The production-ready files will be generated in the `dist` folder.
+
+You can deploy the contents of the `dist` folder to GitHub Pages or any static hosting service.
+
+Visit the deployed website at: [https://sohan-29.github.io/my-portfolio](https://sohan-29.github.io/my-portfolio)
+
+## Plugins Used
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) for React Fast Refresh using Babel.
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) for React Fast Refresh using SWC.
+- [@tailwindcss](https://tailwindcss.com/) for utility-first CSS framework.
+
