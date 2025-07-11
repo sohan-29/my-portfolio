@@ -1,4 +1,21 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 const LandingPage = () => {
+  const [portfolioData, setPortfolioData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/portfolio');
+        setPortfolioData(response.data);
+        console.log('Portfolio Data:', response.data);
+      }
+      catch (error) {
+        console.error('Error fetching portfolio data:', error);
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <section className="w-full bg-[#3a3a3afe] flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden">
       <div className="relative mb-20 md:my-44 lg:my-50 xl:my-63 gap-3 md:w-24/19 lg:w-13/14 xl:w-23/24">

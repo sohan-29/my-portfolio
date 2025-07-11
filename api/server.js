@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3001;
 
+app.use(cors());
 app.use(express.json());
 
 // Sample portfolio data
@@ -25,7 +27,7 @@ let portfolioData = {
 };
 
 // Get portfolio data
-app.get('/portfolio', (req, res) => {
+app.get('/api/portfolio', (req, res) => {
   res.json(portfolioData);
 });
 
