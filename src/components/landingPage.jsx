@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const LandingPage = () => {
-  const [portfolioData, setPortfolioData] = useState(null);
+  const [intro, setIntro] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/portfolio');
-        setPortfolioData(response.data);
+        const response = await axios.get('http://localhost:3001/api/about');
+        setIntro(response.data);
         console.log('Portfolio Data:', response.data);
       }
       catch (error) {
@@ -20,8 +20,8 @@ const LandingPage = () => {
     <section className="w-full bg-[#3a3a3afe] flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden">
       <div className="relative mb-20 md:my-44 lg:my-50 xl:my-63 gap-3 md:w-24/19 lg:w-13/14 xl:w-23/24">
         <div className="absolute z-10 top-24 right-[72vw] w-50 h-20 md:top-29 md:right-74 md:w-69 md:h-22 lg:top-33 lg:right-88 lg:w-80 lg:h-31 xl:top-27 xl:right-181 xl:w-88 xl:h-37 bg-[#da19319b] rounded-full"></div>
-        <h1 className="font-medium text-3xl md:text-4xl lg:font-bold lg:text-5xl xl:text-6xl text-white">hello! im <span className="w-xl text-[#cf162e]">{portfolioData.name}</span></h1>
-        <p className="sticky my-3 mx-3 sm:mx-0 text-sm md:text-base lg:text-lg xl:text-xl z-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consequatur commodi maxime dolores cum incidunt minus unde dicta reprehenderit id quidem necessitatibus ipsa, molestiae saepe provident veritatis, fugiat vitae quo!</p>
+        <h1 className="font-medium text-3xl md:text-4xl lg:font-bold lg:text-5xl xl:text-6xl text-white">hello! im <span className="w-xl text-[#cf162e]">{intro?.name}</span></h1>
+        <p className="sticky my-3 mx-3 sm:mx-0 text-sm md:text-base lg:text-lg xl:text-xl z-100">{intro?.description}</p>
       </div>
       <div className="relative mt-10">
         <div className="absolute left-[80vw] bottom-41 w-29 h-29 md:left-59 md:bottom-111 md:w-37 md:h-37 lg:left-74 lg:bottom-127 lg:w-54 lg:h-54 xl:bottom-129 xl:left-90 xl:w-54 xl:h-54 bg-[#bf162d] rounded-full"></div>
