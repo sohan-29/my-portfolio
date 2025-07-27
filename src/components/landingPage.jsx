@@ -20,7 +20,7 @@ const LandingPage = () => {
     <div className="bg-[#3a3a3afe] w-full flex flex-col">
       <section className="w-full flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden">
         <div className="relative mb-20 md:my-44 lg:my-50 xl:my-63 gap-3 md:w-24/19 xl:w-23/24">
-          <div className="absolute z-20 top-24 right-[72vw] w-50 h-20 md:top-39 md:right-66 md:w-69 md:h-27 lg:top-33 lg:right-99 lg:w-80 lg:h-31 xl:top-39 xl:right-153 xl:w-96 xl:h-39 bg-[#da19319b] rounded-full"></div>
+          <div className="absolute z-20 top-24 right-[72vw] w-50 h-20 md:top-39 md:right-66 md:w-69 md:h-27 lg:top-33 lg:right-99 lg:w-80 lg:h-31 xl:top-39 xl:right-153 xl:w-129 xl:h-36 bg-[#da19319b] rounded-full"></div>
           <h1 className="font-medium text-3xl md:text-4xl xl:text-6xl text-white">hello! im <span className="w-xl text-[#cf162e]">{intro?.name}</span></h1>
           <p className="sticky mt-3 mx-3 sm:mx-0 text-sm md:text-base xl:text-xl z-20">{intro?.description}</p>
           <p className="sticky text-sm md:text-base xl:text-xl z-20"><span className="text-white">{intro?.location}</span></p>
@@ -49,9 +49,7 @@ const LandingPage = () => {
           <div className="absolute md:bottom-17 md:left-37 md:w-22 md:h-22 lg:bottom-17 lg:left-47 lg:w-24 lg:h-24 xl:bottom-7 xl:left-59 xl:w-33 xl:h-33 bg-[#da1931dd] z-1 rounded-full"></div>
         </div>
       </section>
-      <div className="relative w-full h-fit flex justify-center items-center">
-        <svg className="absolute bottom-0 w-7 h-7 animate-bounce" fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.996 491.996" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848 L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128 c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084 c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224 C491.996,136.902,489.204,130.046,484.132,124.986z"></path> </g> </g> </g></svg>
-      </div>
+      <svg className="sticky mx-auto bottom-0 w-7 h-7 animate-bounce" fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.996 491.996" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848 L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128 c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084 c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224 C491.996,136.902,489.204,130.046,484.132,124.986z"></path> </g> </g> </g></svg>
     </div>
   )
 }
