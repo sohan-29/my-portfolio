@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import LandingPage from "./landingPage";
+import AboutMe from "./about";
 
 const Header = () => {
   const [showNavs, setShowNavs] = useState(false);
@@ -48,8 +49,8 @@ const Home = () => {
     <>
       <Header />
       <LandingPage />
-      {/* <AboutMe />
-      <Skills />
+      <AboutMe />
+      {/* <Skills />
       <Projects />
       <Contact />
       <Footer /> */}
