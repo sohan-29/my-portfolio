@@ -2,7 +2,7 @@ const AboutMe = () => {
     return (
         <section className="flex flex-col sm:flex-row items-center justify-center gap-11 bg-[#333333ff] text-white p-5 px-[7vw] min-h-169">
             <div className="w-3/9 text-center sm:text-left">
-                <img src="https://sohan-29.github.io/my-portfolio/aboutProfile.jpeg" alt="About Me" className="w-md rounded-lg shadow-lg" />
+                <img src="https://sohan-29.github.io/my-portfolio/aboutProfile.png" alt="About Me" className="w-md rounded-lg shadow-lg" />
             </div>
             <div className="w-6/9 text-center sm:text-left text-[#9f9f9f]">
                 <h2 className="text-4xl text-[#efefef] font-bold mb-3">About Me</h2>
