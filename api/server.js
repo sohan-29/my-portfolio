@@ -27,22 +27,40 @@ function parseCSV(data) {
   return result;
 }
 
+let introData = null;
+
+app.get('/api/intro', (req, res) => {
+  // Read CSV file and parse on server start
+  const csvFilePath = path.join(__dirname, 'intro.csv');
+  try {
+    const csvData = fs.readFileSync(csvFilePath, 'utf8');
+    const parsedData = parseCSV(csvData);
+    if (parsedData.length > 0) {
+      introData = parsedData[0];
+    }
+  } catch (err) {
+    console.error('Error reading CSV file:', err);
+  }
+  if (introData) {
+    res.status(200).json(introData);
+  } else {
+    res.status(500).json({ error: 'Portfolio data not available' });
+  }
+});
+
 let aboutData = null;
 
-// Read CSV file and parse on server start
-const csvFilePath = path.join(__dirname, 'intro.csv');
-try {
-  const csvData = fs.readFileSync(csvFilePath, 'utf8');
-  const parsedData = parseCSV(csvData);
-  if (parsedData.length > 0) {
-    aboutData = parsedData[0];
-  }
-} catch (err) {
-  console.error('Error reading CSV file:', err);
-}
-
-// Get portfolio data
 app.get('/api/about', (req, res) => {
+  const csvFilePath = path.join(__dirname, 'about.csv');
+  try {
+    const csvData = fs.readFileSync(csvFilePath, 'utf8');
+    const parsedData = parseCSV(csvData);
+    if (parsedData.length > 0) {
+      aboutData = parsedData[0];
+    }
+  } catch (err) {
+    console.error('Error reading CSV file:', err);
+  }
   if (aboutData) {
     res.status(200).json(aboutData);
   } else {
