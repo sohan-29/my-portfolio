@@ -4,22 +4,9 @@ import AboutMe from "./about";
 
 const Header = () => {
   const [showNavs, setShowNavs] = useState(false);
-  const [headerPosition, setHeaderPosition] = useState('fixed');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        setHeaderPosition('fixed');
-      } else {
-        setHeaderPosition('relative');
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <div className={`flex flex-col sm:flex-row justify-between px-5 sm:px-18 py-3 bg-[#222222] w-full z-50 top-0 ` + headerPosition}>
+    <div className="flex flex-col sm:flex-row justify-between px-5 sm:px-18 py-3 bg-[#222222] w-full z-50 top-0 sticky">
       <span className="sm:mr-18 lg:mx-9 sm:text-3xl text-xl font-bold text-[#cf162e] flex justify-between">@sohan
       <button className="sm:hidden flex flex-col justify-between p-2 h-7 w-8 border-[#dbdbdb] rounded-lg border-1 group" type="button"
       onClick={() => setShowNavs(!showNavs)}>
