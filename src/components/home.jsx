@@ -16,9 +16,9 @@ const Header = () => {
       </button>
       </span>
       <div className={"sm:flex flex-col sm:flex-row items-start sm:justify-around sm:items-center w-full sm:w-lg " + (showNavs ? 'flex mt-2 mt-l-1' : 'hidden')}>
-        <a href="#" className="relative group text-sm sm:text-md text-[#ffffff]">Home
+        <a href="#home" className="relative group text-sm sm:text-md text-[#ffffff]">Home
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="#" className="relative group text-sm sm:text-md text-[#ffffff]">About
+        <a href="#about" className="relative group text-sm sm:text-md text-[#ffffff]">About
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
         <a href="#" className="relative group text-sm sm:text-md text-[#ffffff]">Skills
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>

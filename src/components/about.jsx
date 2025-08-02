@@ -20,7 +20,7 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section className="flex flex-col sm:flex-row items-center justify-center gap-11 bg-[#333333ff] text-white p-5 px-[7vw] min-h-169">
+    <section id="about" className="flex flex-col sm:flex-row items-center justify-center gap-11 bg-[#333333ff] text-white p-5 px-[7vw] min-h-169">
       <div className="relative w-3/9 aspect-square text-center sm:text-left">
         <img src="https://sohan-29.github.io/my-portfolio/aboutProfile.png" alt="About Me" className="w-sm mt-6 rounded-full border-4 text-[#ca1931ea] shadow-[0_0_11px_#ca1931ea,0_0_29px_#ca1931ef]" />
       </div>
