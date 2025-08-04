@@ -4,6 +4,7 @@ import Overview from "./tabs/Overview";
 import Academics from "./tabs/Academics";
 import Experience from "./tabs/Experience";
 import Resume from "./tabs/Resume";
+import { Header } from "./home";
 
 const AboutMe = () => {
   const [aboutData, setAboutData] = useState({});
@@ -46,7 +47,9 @@ const AboutMe = () => {
   };
 
   return (
-    <section id="about" className="overflow-hidden flex flex-col sm:flex-row items-center justify-center gap-11 bg-[#333333ff] text-white p-5 px-[7vw] min-h-169">
+    <>
+    {location.pathname.includes("about") && <Header />}
+    <section id="about" className="overflow-hidden flex flex-col sm:flex-row items-center justify-center gap-11 bg-[#333333ff] text-white p-5 px-[7vw] h-screen">
       <div className="relative w-6/9 md:w-3/9 aspect-square text-center sm:text-left">
         <img src="https://sohan-29.github.io/my-portfolio/aboutProfile.png" alt="About Me" className="w-sm mt-7 rounded-full border-4 text-[#ca1931ea] shadow-[0_0_11px_#ca1931ea,0_0_29px_#ca1931ef]" />
       </div>
@@ -79,6 +82,7 @@ const AboutMe = () => {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
