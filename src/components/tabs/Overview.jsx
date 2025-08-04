@@ -1,7 +1,33 @@
-const Overview = ({ aboutData }) => {
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const Overview = () => {
+  const [aboutData, setAboutData] = useState({});
+
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/about');
+        setAboutData(response.data);
+        console.log('About Data:', response.data);
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+
+    fetchAboutData();
+  }, []);
+
   return (
     <div className="tab-content mt-6">
-      <h3 className="text-2xl font-bold mb-4 text-white">Overview</h3>
+      {Object.values(aboutData).map((description, index) => {
+          return (
+            <>
+              {index === 0 ? <p className="text-xl mb-3">Hello! I'm <span className="text-[#cf162e] font-md">Sohan</span>, {description} </p> :
+                <p key={index} className="text-xl mb-4">{description}</p>}
+            </>
+          )
+        })}
     </div>
   );
 };
