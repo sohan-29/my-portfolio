@@ -48,6 +48,26 @@ app.get('/api/intro', (req, res) => {
   }
 });
 
+let academicsData = null;
+
+app.get('/api/academics', (req, res)=> {
+  const csvFilePath = path.join(__dirname, 'academics.csv');
+  try {
+    const csvData = fs.readFileSync(csvFilePath, 'utf8');
+    const parsedData = parseCSV(csvData);
+    if (parsedData.length > 0) {
+      academicsData = parsedData[0];
+    }
+  } catch (err) {
+    console.error('Error reading CSV file:', err);
+  }
+  if (academicsData) {
+    res.status(200).json(academicsData);
+  } else {
+    res.status(500).json({ error: 'Portfolio data not available' });
+  }
+})
+
 let aboutData = null;
 
 app.get('/api/about', (req, res) => {

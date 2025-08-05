@@ -9,19 +9,6 @@ import { Header } from "./home";
 const AboutMe = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
-  useEffect(() => {
-    const fetchAboutData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/api/about');
-        console.log('About Data:', response.data);
-      } catch (error) {
-        console.error('Error fetching about data:', error);
-      }
-    };
-
-    fetchAboutData();
-  }, []);
-
   const tabs = [
     { name: 'Overview', id: 'overview' },
     { name: 'Academics', id: 'academics' },
