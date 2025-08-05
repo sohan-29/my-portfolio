@@ -7,23 +7,55 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Function to read and parse CSV file
+// Function to read and parse CSV file properly - handles all carriage returns
 function parseCSV(data) {
-  const lines = data.trim().split('\n');
-  const headers = lines[0].split(',');
+  // Handle Windows line endings (CRLF) by splitting on \r\n or \n
+  const lines = data.trim().split(/\r?\n/);
+  if (lines.length === 0) return [];
+  
+  // Clean headers - remove quotes, trim whitespace, and clean field names
+  const headers = lines[0].split(',').map(header => 
+    header.trim().replace(/^"|"$/g, '').replace(/\r$/, '').trim()
+  );
   const result = [];
+  
   for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    const values = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let j = 0; j < line.length; j++) {
+      const char = line[j];
+      
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        values.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    values.push(current.trim());
+    
     const obj = {};
-    const currentline = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-    for (let j = 0; j < headers.length; j++) {
-      let value = currentline[j];
+    headers.forEach((header, index) => {
+      let value = values[index] || '';
+      // Remove surrounding quotes if present
       if (value.startsWith('"') && value.endsWith('"')) {
         value = value.slice(1, -1);
       }
-      obj[headers[j]] = value;
-    }
+      // Handle escaped quotes
+      value = value.replace(/""/g, '"');
+      // Clean up ALL carriage returns and extra spaces
+      value = value.replace(/\r/g, '').trim();
+      obj[header] = value;
+    });
+    
     result.push(obj);
   }
+  
   return result;
 }
 
@@ -55,9 +87,7 @@ app.get('/api/academics', (req, res)=> {
   try {
     const csvData = fs.readFileSync(csvFilePath, 'utf8');
     const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      academicsData = parsedData[0];
-    }
+    academicsData = parsedData;
   } catch (err) {
     console.error('Error reading CSV file:', err);
   }
