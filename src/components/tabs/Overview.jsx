@@ -23,8 +23,8 @@ const Overview = () => {
       {Object.values(aboutData).map((description, index) => {
           return (
             <>
-              {index === 0 ? <p className="text-xl mb-3">Hello! I'm <span className="text-[#cf162e] font-md">Sohan</span>, {description} </p> :
-                <p key={index} className="text-xl mb-4">{description}</p>}
+              {index === 0 ? <p className="text-base lg:text-lg xl:text-xl mb-3">Hello! I'm <span className="text-[#cf162e] font-md">Sohan</span>, {description} </p> :
+                <p key={index} className="text-base lg:text-lg xl:text-xl mb-4">{description}</p>}
             </>
           )
         })}

@@ -21,15 +21,15 @@ const Academics = () => {
     <div className="tab-content mt-6">
 {      console.log(academics)
 }      {Array.isArray(academics) && academics.map((item, index) => (
-        <div key={index} className="mb-8 p-4 border rounded-lg">
+        <div key={index} className="mb-8">
           {console.log(item)}
-          <h2 className="text-xl font-bold">{item.InstituteName}</h2>
-          <p className="text-gray-600">{item.course}</p>
-          <p className="text-sm text-gray-500">
+          <h2 className="text-base md:text-lg lg:text-xl text-[#efefefbf] font-bold">{item.InstituteName}</h2>
+          <p className="text-xs md:text-sm lg:text-base text-[#999999] italic">{item.course}</p>
+          <p className="text-sm text-[#ca1931] font-semibold">
             {item.startYear} - {item.endYear <= new Date().getFullYear() ? item.endYear : "present"}
           </p>
-          <p className="mt-2">{item.discription1}</p>
-          <p className="mt-1">{item.discription2 }</p>
+          <p className="mt-2 text-sm md:text-base">{item.discription1}</p>
+          <p className="mt-1 text-sm md:text-base">{item.discription2 }</p>
         </div>
       ))}
     </div>
