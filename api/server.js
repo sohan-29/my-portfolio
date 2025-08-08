@@ -98,6 +98,24 @@ app.get('/api/academics', (req, res)=> {
   }
 })
 
+let experienceData = null;
+
+app.get('/api/experience', (req, res) => {
+  const csvFilePath = path.join(__dirname, 'experience.csv');
+  try {
+    const csvData = fs.readFileSync(csvFilePath, 'utf8');
+    const parsedData = parseCSV(csvData);
+    experienceData = parsedData;
+  } catch (err) {
+    console.error('Error reading CSV file:', err);
+  }
+  if (experienceData) {
+    res.status(200).json(experienceData);
+  } else {
+    res.status(500).json({ error: 'Portfolio data not available' });
+  }
+});
+
 let aboutData = null;
 
 app.get('/api/about', (req, res) => {
