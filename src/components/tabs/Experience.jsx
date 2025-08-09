@@ -17,7 +17,21 @@ const Experience = () => {
   }, []);
   return (
         <div className="tab-content mt-6">
-          <h3 className="text-2xl font-bold mb-4 text-white">Experience</h3>
+          {expData.map((item, index) => (
+            <div key={index} className="mb-8">
+              <div className="flex flex-col w-fit item-center justify-between sm:gap-3 w-full">
+              <h2 className="text-lg md:text-xl lg:text-2xl text-[#efefefbf] font-bold">{item.company}</h2>
+              <p className="text-xs sm:text-sm text-[#999999] md:mt-1.5 xl:mt-2.5">{item.location}</p>
+              </div>
+              <p className="text-sm md:text-sm lg:text-base text-[#999999] italic">{item.title}</p>
+              <p className="text-xs sm:text-sm lg:text-base text-[#ca1931] font-semibold">
+                {item.from} - {item.to.split(" ")[1] <= new Date().getFullYear() ? item.to : "present"}
+              </p>
+              <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description1}</p>
+              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description2}</p>
+              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description3}</p>
+            </div>
+          ))}
         </div>
       );
     };
