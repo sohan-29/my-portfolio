@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LandingPage from "./landingPage";
 import AboutMe from "./about";
+import Skills from "./skills";
 
 export const Header = () => {
   const [showNavs, setShowNavs] = useState(false);
@@ -21,7 +22,7 @@ export const Header = () => {
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
         <a href="/my-portfolio/about" className="relative group text-sm sm:text-md text-[#ffffff]">About
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="#" className="relative group text-sm sm:text-md text-[#ffffff]">Skills
+        <a href="/my-portfolio/skills" className="relative group text-sm sm:text-md text-[#ffffff]">Skills
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
         <a href="#" className="relative group text-sm sm:text-md text-[#ffffff]">Projects
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
@@ -38,8 +39,8 @@ const Home = () => {
       <Header />
       <LandingPage />
       <AboutMe />
-      {/* <Skills />
-      <Projects />
+      <Skills />
+      {/* <Projects />
       <Contact />
       <Footer /> */}
     </>
