@@ -46,7 +46,7 @@ const AboutMe = () => {
         </div>
         <div className="relative w-8/9 sm:w-6/9 md:mt-17 text-center sm:text-left text-[#9f9f9f]">
           <h2 className="text-2xl md:text-4xl xl:text-5xl text-[#efefefef] font-bold mb-3">About Me</h2>
-          <div role="tablist" className="tabs flex justify-center sm:justify-start gap-4 overflow-x-auto no-scrollbar whitespace-nowrap border-b-2 w-full sm:w-[90%]">
+          <div role="tablist" className="tabs flex justify-center sm:justify-start gap-4 overflow-x-auto no-scrollbar whitespace-nowrap border-b-2 w-full sm:w-[96%]">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
