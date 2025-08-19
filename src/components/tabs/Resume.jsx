@@ -3,7 +3,7 @@ import { useState } from "react";
 const Resume = () => {
   const [animated, setAnimated] = useState(false);
   return (
-    <div className="tab-content mt-6 w-full text-center sm:text-start flex flex-col justify-center sm:justify-start">
+    <div class="tab-content mt-6 w-full text-center sm:text-start flex flex-col items-center sm:items-start">
       <p className="text-sm sm:text-base text-[#999999] mb-4">Download my resume to know more about my skills and experiences.</p>
       <a
         href={`${import.meta.env.BASE_URL}resume.pdf`}
