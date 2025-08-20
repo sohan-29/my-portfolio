@@ -8,7 +8,6 @@ const Academics = () => {
     const fetchAboutData = async () => {
       try {
         const response = await axios.get('http://localhost:3001/api/academics');
-        console.log(response.data)
         setAcademics(response.data);
       } catch (error) {
         console.error('Error fetching about data:', error);
@@ -19,8 +18,7 @@ const Academics = () => {
   }, []);
   return (
     <div className="tab-content mt-6">
-{      console.log(academics)
-}      {Array.isArray(academics) && academics.map((item, index) => (
+      {Array.isArray(academics) && academics.map((item, index) => (
         <div key={index} className="mb-8">
           {console.log(item)}
           <h2 className="text-base md:text-lg lg:text-xl text-[#efefefbf] font-bold">{item.InstituteName}</h2>
