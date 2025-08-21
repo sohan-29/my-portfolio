@@ -136,6 +136,22 @@ app.get('/api/about', (req, res) => {
   }
 });
 
+app.get('/api/skills', (req, res) => {
+  const csvFilePath = path.join(__dirname, 'skills.csv');
+  try {
+    const csvData = fs.readFileSync(csvFilePath, 'utf8');
+    const parsedData = parseCSV(csvData);
+    if (parsedData.length > 0) {
+      res.status(200).json(parsedData);
+    } else {
+      res.status(404).json({ error: 'No skills data found' });
+    }
+  } catch (err) {
+    console.error('Error reading CSV file:', err);
+    res.status(500).json({ error: 'Portfolio data not available' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`API server listening at http://localhost:${port}`);
 });

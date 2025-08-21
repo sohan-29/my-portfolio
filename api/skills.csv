@@ -1,0 +1,10 @@
+skill,percentage,icon
+HTML,90,./api/icons/html.svg
+CSS,90,./api/icons/css.svg
+JavaScript,85,./api/icons/js.svg
+Tailwind CSS,80,./api/icons/tailwind.svg
+React.js,85,./api/icons/react.svg
+Python,85,./api/icons/python.svg
+Java,80,./api/icons/java.svg
+C++,75,./api/icons/cpp.svg
+C,80,./api/icons/c.svg
