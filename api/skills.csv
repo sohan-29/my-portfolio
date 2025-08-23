@@ -1,10 +1,10 @@
-skill,percentage,icon
-HTML,90,./api/icons/html.svg
-CSS,90,./api/icons/css.svg
-JavaScript,85,./api/icons/js.svg
-Tailwind CSS,80,./api/icons/tailwind.svg
-React.js,85,./api/icons/react.svg
-Python,85,./api/icons/python.svg
-Java,80,./api/icons/java.svg
-C++,75,./api/icons/cpp.svg
-C,80,./api/icons/c.svg
+skill,percentage,icon,discription
+HTML,90,./api/icons/html.svg,HyperText Markup Language
+CSS,90,./api/icons/css.svg,Cascading Style Sheets
+JavaScript,85,./api/icons/js.svg,Programming Language
+Tailwind CSS,80,./api/icons/tailwind.svg,Utility-first CSS framework
+React.js,85,./api/icons/react.svg,JavaScript library for building user interfaces
+Python,85,./api/icons/python.svg,Programming Language
+Java,80,./api/icons/java.svg,Programming Language
+C++,75,./api/icons/cpp.svg,Programming Language
+C,80,./api/icons/c.svg,Programming Language
