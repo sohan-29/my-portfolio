@@ -2,15 +2,13 @@ import axios from "axios";
 import { Header } from "./home";
 import { useEffect, useState } from "react";
 
-const RadialProgress = ({ key, skill, icon }) => {
+const RadialProgress = ({ skill, icon, percent }) => {
+  const [percentage, setPercentage] = useState(100);
   return (
-    <div key={key} className="relative">
-      <div className="radial-progress text-[#4e4e4e] rotate-90" style={{ "--value": 100, "--size": "5rem" }} aria-valuenow={90} role="progressbar"></div>
+    <div className="relative" onClick={() => {setPercentage(percent)}}>
+      <div className={`z-10 radial-progress ${percentage === 100 ? `text-[#4e4e4eee]` : `text-[#ca1931] spin-once`}`} style={{ "--value": percentage, "--size": "5rem" }} aria-valuenow={90} role="progressbar"></div>
+      <div className="absolute left-0 radial-progress text-[#4e4e4e4e] rotate-180" style={{ "--value": 100, "--size": "5rem" }} aria-valuenow={90} role="progressbar"></div>
       <img className="absolute left-10 top-10 -translate-x-1/2 -translate-y-1/2 w-8 h-8" src={icon} alt={`${skill} icon`} />
-      {/* <span className="absolute left-6 top-6.5 -translate-x-1/2 -translate-y-1/2 text-[#eeeeeedb] font-bold text-sm">
-        {value}%
-      </span> */}
-      {/* <span className="absolute left-5 top-6.5 text-[#eeeeeedb] mb-1">{skill}</span> */}
     </div>
   );
 }
@@ -37,7 +35,7 @@ const Skills = () => {
         <h2 className="text-[#eeeeeebe] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 mx-[1vw] mt-18 border-b-2">Skills</h2>
         <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 lg:gap-9 xl:gap-11 mt-11 mb-10 w-[88%] mx-auto">
           {skills.map((item, index) => (
-            <RadialProgress key={index} icon={item.icon} skill={item.skill} />
+            <RadialProgress key={index} icon={item.icon} skill={item.skill} percent={item.percentage} />
           ))}
         </div>
       </div>
