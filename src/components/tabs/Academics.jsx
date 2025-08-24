@@ -7,7 +7,7 @@ const Academics = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/academics');
+    const response = await axios.get('https://my-portfolio-api-ahhw.onrender.com/api/academics');
         setAcademics(response.data);
       } catch (error) {
         console.error('Error fetching about data:', error);
