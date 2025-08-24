@@ -10,7 +10,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-    const response = await axios.get('https://my-portfolio-api-ahhw.onrender.com/api/skills');
+  const response = await axios.get('http://localhost:3001/api/skills');
         setSkills(response.data);
         setSkillDetail(response.data[0]?.discription || "");
         console.log('Portfolio Data:', response.data);

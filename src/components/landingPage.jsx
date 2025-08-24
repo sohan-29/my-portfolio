@@ -6,7 +6,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-    const response = await axios.get('https://my-portfolio-api-ahhw.onrender.com/api/intro');
+  const response = await axios.get('http://localhost:3001/api/intro');
         setIntro(response.data);
         console.log('Portfolio Data:', response.data);
       }

@@ -6,7 +6,7 @@ const Experience = () => {
   useEffect(() => {
     const fetchExpData = async () => {
       try {
-    const response = await axios.get("https://my-portfolio-api-ahhw.onrender.com/api/experience");
+  const response = await axios.get("http://localhost:3001/api/experience");
         setExpData(response.data);
       } catch (error) {
         console.error("Error fetching experience data:", error);

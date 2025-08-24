@@ -44,7 +44,7 @@ const AboutMe = () => {
           <div className="absolute top-47 right-[11vw] w-11 h-11 bg-[#ca19316a] md:top-auto md:bottom-33 md:right-9 md:w-8 md:h-8 lg:bottom-36 lg:right-5 lg:w-9 lg:h-9 xl:bottom-39 xl:right-1 xl:w-13 xl:h-13 sm:bg-[#ca1931db] rounded-full"></div>
           <div className="absolute top-87 left-[18vw] w-23 h-23 md:top-auto md:bottom-44 md:left-69 md:w-22 md:h-22 lg:bottom-29 lg:left-77 lg:w-24 lg:h-24 xl:bottom-18 xl:left-79 xl:w-33 xl:h-33 bg-[#da19317d] z-0 rounded-full"></div>
         </div>
-        <div className="relative w-8/9 sm:w-6/9 md:mt-17 text-center sm:text-left text-[#9f9f9f]">
+          <div className="relative w-8/9 sm:w-6/9 md:mt-17 text-center sm:text-left text-gray-300">
           <h2 className="text-2xl md:text-4xl xl:text-5xl text-[#efefefef] font-bold mb-3">About Me</h2>
           <div role="tablist" className="tabs flex justify-center sm:justify-start gap-4 overflow-x-auto no-scrollbar whitespace-nowrap border-b-2 w-full sm:w-[96%]">
             {tabs.map((tab) => (

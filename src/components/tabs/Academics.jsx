@@ -7,7 +7,7 @@ const Academics = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-    const response = await axios.get('https://my-portfolio-api-ahhw.onrender.com/api/academics');
+        const response = await axios.get('http://localhost:3001/api/academics');
         setAcademics(response.data);
       } catch (error) {
         console.error('Error fetching about data:', error);
@@ -27,7 +27,7 @@ const Academics = () => {
             {item.startYear} - {item.endYear <= new Date().getFullYear() ? item.endYear : "present"}
           </p>
           <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg">{item.discription1}</p>
-          <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.discription2 }</p>
+          <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.discription2}</p>
         </div>
       ))}
     </div>
