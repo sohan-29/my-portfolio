@@ -21,10 +21,10 @@ const Overview = () => {
     <div className="tab-content mt-6">
       {Object.values(aboutData).map((description, index) => {
           return (
-            <>
+            <div key={index}>
               {index === 0 ? <p className="text-sm sm:text-base lg:text-lg xl:text-xl mb-3">Hello! I'm <span className="text-[#cf162e] font-md">Sohan</span>, {description} </p> :
-                <p key={index} className="text-sm sm:text-base lg:text-lg xl:text-xl mb-4">{description}</p>}
-            </>
+                <p className="text-sm sm:text-base lg:text-lg xl:text-xl mb-4">{description}</p>}
+            </div>
           )
         })}
     </div>

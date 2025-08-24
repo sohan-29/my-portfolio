@@ -47,7 +47,7 @@ const Skills = () => {
           })}
         </div>
         {skillDetail && (
-          <div className="text-sm text-[#999999] text-center mb-6">{skillDetail}</div>
+          <div className="text-lg text-[#aaaaaa] text-center m-11">{skillDetail}</div>
         )}
       </div>
     </>
