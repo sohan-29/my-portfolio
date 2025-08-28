@@ -92,6 +92,7 @@ app.get('/api/academics', (req, res)=> {
     console.error('Error reading CSV file:', err);
   }
   if (academicsData) {
+    console.log(academicsData);
     res.status(200).json(academicsData);
   } else {
     res.status(500).json({ error: 'Portfolio data not available' });

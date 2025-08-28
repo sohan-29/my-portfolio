@@ -4,7 +4,7 @@
   "description": "Express API for portfolio data",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
