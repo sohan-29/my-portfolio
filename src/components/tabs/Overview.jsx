@@ -18,7 +18,7 @@ const Overview = () => {
   }, []);
 
   return (
-    <div className="tab-content mt-6">
+    <div className="mt-6 text-amber-50">
       {Object.values(aboutData).map((description, index) => {
           return (
             <div key={index}>

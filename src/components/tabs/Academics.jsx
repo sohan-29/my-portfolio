@@ -17,11 +17,11 @@ const Academics = () => {
     fetchAboutData();
   }, []);
   return (
-    <div className="tab-content mt-6">
+    <div className="mt-6">
       {Array.isArray(academics) && academics.map((item, index) => (
         <div key={index} className="mb-8">
           {console.log(item)}
-          <h2 className="text-base md:text-lg lg:text-xl text-[#efefefbf] font-bold">{item.InstituteName}</h2>
+          <h2 className="text-sm md:text-base lg:text-lg text-[#efefefbf] font-bold">{item.InstituteName}</h2>
           <p className="text-xs md:text-sm lg:text-base text-[#999999] italic">{item.course}</p>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#ca1931] font-semibold">
             {item.startYear} - {item.endYear <= new Date().getFullYear() ? item.endYear : "present"}

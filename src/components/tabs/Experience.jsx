@@ -15,7 +15,7 @@ const Experience = () => {
     fetchExpData();
   }, []);
   return (
-        <div className="tab-content mt-6">
+        <div className="mt-6">
           {expData.map((item, index) => (
             <div key={index} className="mb-8">
               <div className="flex flex-col sm:flex-row w-full sm:w-fit item-center justify-between sm:gap-3">
