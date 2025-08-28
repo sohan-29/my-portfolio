@@ -3,6 +3,7 @@ import LandingPage from "./landingPage";
 import AboutMe from "./about";
 import Skills from "./skills";
 import Projects from "./projects";
+import Contact from "./contact";
 
 export const Header = () => {
   const [showNavs, setShowNavs] = useState(false);
@@ -42,8 +43,8 @@ const Home = () => {
       <AboutMe />
       <Skills />
       <Projects />
-      {/* <Contact />
-      <Footer /> */}
+      <Contact />
+      {/* <Footer /> */}
     </>
   )
 }

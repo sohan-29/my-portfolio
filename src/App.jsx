@@ -4,6 +4,7 @@ import Home from './components/home';
 import AboutMe from './components/about';
 import Skills from './components/skills';
 import Projects from './components/projects';
+import Contact from './components/contact';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
         <Route path="/about" element={<AboutMe />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
