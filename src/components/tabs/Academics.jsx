@@ -26,8 +26,8 @@ const Academics = () => {
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#ca1931] font-semibold">
             {item.startYear} - {item.endYear <= new Date().getFullYear() ? item.endYear : "present"}
           </p>
-          <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg">{item.discription1}</p>
-          <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.discription2}</p>
+          <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg text-[#ddd]">{item.discription1}</p>
+          <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg text-[#ddd]">{item.discription2}</p>
         </div>
       ))}
     </div>

@@ -17,13 +17,13 @@ const LandingPage = () => {
     fetchData();
   }, []);
   return (
-    <div id="home" className="bg-[#3a3a3afe] w-full flex flex-col">
+    <div id="home" className="bg-[#292929] w-full flex flex-col">
       <section className="w-full flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden">
         <div className="relative mb-20 md:my-44 lg:my-50 xl:my-63 gap-3 md:w-24/19 xl:w-23/24">
           <div className="absolute z-20 top-24 right-[72vw] w-50 h-20 md:top-39 md:right-66 md:w-69 md:h-27 lg:top-33 lg:right-99 lg:w-80 lg:h-31 xl:top-39 xl:right-153 xl:w-129 xl:h-36 bg-[#da19319b] rounded-full"></div>
           <h1 className="font-medium text-3xl md:text-4xl xl:text-6xl text-white">hello! im <span className="w-xl text-[#cf162e]">{intro?.name}</span></h1>
-          <p className="sticky mt-3 mx-3 sm:mx-0 text-sm md:text-base xl:text-xl z-20">{intro?.description}</p>
-          <p className="sticky text-sm md:text-base xl:text-xl z-20"><span className="text-white">{intro?.location}</span></p>
+          <p className="sticky mt-3 mx-3 sm:mx-0 text-sm md:text-base xl:text-xl z-20 text-[#eee]">{intro?.description}</p>
+          <p className="sticky text-sm md:text-base xl:text-xl z-20"><span className="text-[#aaa]">{intro?.location}</span></p>
           <div className="sticky z-20 flex justify-center sm:justify-start gap-x-2 pt-1 font-mono text-sm print:hidden" role="list" aria-label="Contact links">
             <a href="mailto:sohan291106@gmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-gray-600 bg-[#222] text-white w-8 h-8 group">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail transition-all duration-200 group-hover:scale-118" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>

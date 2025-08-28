@@ -26,9 +26,9 @@ const Experience = () => {
               <p className="text-xs sm:text-sm lg:text-base text-[#ca1931] font-semibold">
                 {item.from} - {item.to.split(" ")[1] <= new Date().getFullYear() ? item.to : "present"}
               </p>
-              <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description1}</p>
-              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description2}</p>
-              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg">{item.description3}</p>
+              <p className="mt-2 text-xs sm:text-sm lg:text-base xl:text-lg text-[#ddd]">{item.description1}</p>
+              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg text-[#ddd]">{item.description2}</p>
+              <p className="mt-1 text-xs sm:text-sm lg:text-base xl:text-lg text-[#ddd]">{item.description3}</p>
             </div>
           ))}
         </div>

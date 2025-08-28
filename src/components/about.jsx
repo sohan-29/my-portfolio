@@ -34,7 +34,7 @@ const AboutMe = () => {
   return (
     <>
       {location.pathname.includes("about") && <Header />}
-      <section id="about" className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-11 bg-[#363636fe] text-white p-5 px-[7vw] h-full min-h-screen` + (location.pathname.includes("about") ? " overflow-hidden" : "")}>
+      <section id="about" className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-11 bg-[#2b2b2b] text-white p-5 px-[7vw] h-full min-h-screen` + (location.pathname.includes("about") ? " overflow-hidden" : "")}>
         <div className="relative w-4/9 md:w-4/10 lg:w-3/10 xl:w-3/11 mt-19 aspect-square text-center sm:text-left">
           <img src="https://sohan-29.github.io/my-portfolio/aboutProfile.png" alt="About Me" className="w-sm lg:w-md xl:w-lg mt-7 xl:mt-auto xl:mb-9 rounded-full border-4 text-[#ca1931ea] shadow-[0_0_11px_#ca1931ea,0_0_29px_#ca1931ef]" />
         </div>
