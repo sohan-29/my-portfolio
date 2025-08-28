@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LandingPage from "./landingPage";
 import AboutMe from "./about";
 import Skills from "./skills";
+import Projects from "./projects";
 
 export const Header = () => {
   const [showNavs, setShowNavs] = useState(false);
@@ -40,8 +41,8 @@ const Home = () => {
       <LandingPage />
       <AboutMe />
       <Skills />
-      {/* <Projects />
-      <Contact />
+      <Projects />
+      {/* <Contact />
       <Footer /> */}
     </>
   )
