@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Header } from "./home";
 
 const Projects = () => {
   const data = [
@@ -11,28 +12,31 @@ const Projects = () => {
   ]
   const [activeProject, setActiveProject] = useState(null);
   const scrollLeft = () => {
-    document.querySelector('.projectWindow').scrollBy({ left: -300, behavior: 'smooth' });
+    document.querySelector('.projectWindow').scrollBy({ left: -369, behavior: 'smooth' });
   }
   const scrollRight = () => {
-    document.querySelector('.projectWindow').scrollBy({ left: 300, behavior: 'smooth' });
+    document.querySelector('.projectWindow').scrollBy({ left: 369, behavior: 'smooth' });
   }
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#2b2b2b] text-white">
-      <h1 className="text-5xl font-bold">Projects</h1>
-      <div className="relative flex items-center justify-center w-full">
-        <button className="mt-5 px-6 py-2 cursor-pointer" onClick={scrollLeft}>&lt;</button>
-        <div className="projectWindow flex w-[90%] mt-10 gap-7 overflow-x-scroll scrollbar-none py-4 cursor-pointer">
-          {data.map(project => (
-            <div key={project.id} onClick={()=>setActiveProject(project.id)} className={"group min-w-[27vw] min-h-[33vh] bg-[url('/profile.jpeg')] bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" + (activeProject === project.id ? " absolute top-0 left-[34%] w-[33vw] h-[44vh]" : "")}>
-              <button onClick={(e)=>{e.stopPropagation(); setActiveProject(null)}} className={"absolute top-2 right-2 text-white w-7 h-7 flex items-center justify-center " + (activeProject === project.id ? "block" : "hidden")}>X</button>
-              <h2 className={"text-2xl font-semibold mb-4"+ (activeProject === project.id ? " text-3xl" : " group-hover:text-3xl") }>{project.name}</h2>
-              <p className="text-gray-300">{project.description}</p>
-            </div>
-          ))}
+    <>
+      {location.pathname.includes("projects") && <Header />}
+      <div className="min-h-screen flex flex-col items-center bg-[#2b2b2b] text-white">
+        <h1 className="text-5xl pt-22 mb-9 font-bold">Projects</h1>
+        <div className="relative flex items-center justify-center w-full">
+          <img className="h-8 aspect-auto mt-5 px-6 py-2 cursor-pointer" src="./icons/leftArrow.svg" onClick={scrollLeft}></img>
+          <div className="projectWindow flex w-[90%] mt-10 gap-7 overflow-x-scroll scrollbar-none py-4 cursor-pointer">
+            {data.map(project => (
+              <div key={project.id} onClick={() => setActiveProject(project.id)} className={"group min-w-[27vw] min-h-[33vh] bg-[url('/profile.jpeg')] bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" + (activeProject === project.id ? " absolute top-0 left-[34%] w-[33vw] h-[44vh]" : "")}>
+                <button onClick={(e) => { e.stopPropagation(); setActiveProject(null) }} className={"absolute top-2 right-2 text-white w-7 h-7 flex items-center justify-center " + (activeProject === project.id ? "block" : "hidden")}>X</button>
+                <h2 className={"text-2xl font-semibold mb-4" + (activeProject === project.id ? " text-3xl" : " group-hover:text-3xl")}>{project.name}</h2>
+                <p className="text-gray-300">{project.description}</p>
+              </div>
+            ))}
+          </div>
+          <img className="h-8 aspect-auto mt-5 px-6 py-2 cursor-pointer" src="./icons/rightArrow.svg" onClick={scrollRight}></img>
         </div>
-        <button className="mt-5 px-6 py-2 cursor-pointer" onClick={scrollRight}>&gt;</button>
       </div>
-    </div>
+    </>
   );
 }
 
