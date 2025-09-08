@@ -13,14 +13,12 @@ const Skills = () => {
   const response = await axios.get('http://localhost:3001/api/skills');
         setSkills(response.data);
         setSkillDetail(response.data[0]?.discription || "");
-        console.log('Portfolio Data:', response.data);
       }
       catch (error) {
         console.error('Error fetching portfolio data:', error);
       }
     }
     fetchData();
-    console.log(skillDetail)
   }, []);
   
   const handleSkillClick = (index, item) => {
