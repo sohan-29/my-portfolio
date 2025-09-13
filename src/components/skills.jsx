@@ -33,7 +33,7 @@ const Skills = () => {
         <h2 className="text-[#eeeeeebe] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 mx-[1vw] mt-18 border-b-2 z-10">Skills</h2>
         <div className="relative sm:mt-10">
           <div className="absolute top-3 right-[16vw] w-33 h-33 | md:top-0 md:left-59 md:w-9 md:h-9 | lg:top-0 lg:left-69 lg:w-9 lg:h-9 | xl:top-0 xl:left-96 xl:w-15 xl:h-15 bg-[#bf162dad] rounded-full"></div>
-          <div className="absolute top-144 right-[69vw] w-33 h-33 | md:top-101 md:right-18 md:w-29 md:h-29 | lg:top-96 lg:right-29 lg:w-33 lg:h-33 | xl:top-129 xl:right-69 xl:w-44 xl:h-44 bg-[#ca1931a1] rounded-full"></div>
+          <div className="absolute top-144 right-[69vw] w-33 h-33 | md:top-101 md:right-18 md:w-29 md:h-29 | lg:top-96 lg:right-29 lg:w-33 lg:h-33 | xl:top-111 xl:right-55 xl:w-44 xl:h-44 bg-[#ca1931a1] rounded-full"></div>
           <div className="absolute top-47 right-[11vw] w-11 h-11 bg-[#ca19316a] | md:top-auto md:bottom-11 md:right-152 md:w-16 md:h-16 | lg:bottom-11 lg:right-201 lg:w-19 lg:h-19 | xl:top-auto xl:bottom-11 xl:left-0 xl:w-23 xl:h-23 sm:bg-[#ca1931af] rounded-full"></div>
           <div className="absolute top-87 left-[18vw] w-23 h-23 | md:top-69 md:left-39 md:w-20 md:h-20 | lg:top-50 lg:left-44 lg:w-20 lg:h-20 | xl:top-69 xl:left-59 xl:w-29 xl:h-29 bg-[#da19316d] z-0 rounded-full"></div>
         </div>
