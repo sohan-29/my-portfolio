@@ -17,7 +17,7 @@ const LandingPage = () => {
   }, []);
   return (
     <div id="home" className="bg-[#292929] w-full flex flex-col">
-      <section className="w-full flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden">
+      <section className={`w-full flex flex-col-reverse text-center sm:text-start sm:flex-row sm:justify-start item-center md:px-11 lg:px-20 xl:px-27 overflow-hidden  ${location.pathname.includes("skills") ? "overflow-hidden" : ""}`}>
         <div className="relative mb-20 md:my-44 lg:my-50 xl:my-63 gap-3 md:w-24/19 xl:w-23/24">
           <div className="absolute z-20 top-24 right-[72vw] w-50 h-20 md:top-39 md:right-66 md:w-69 md:h-27 lg:top-33 lg:right-99 lg:w-80 lg:h-31 xl:top-39 xl:right-153 xl:w-129 xl:h-36 bg-[#da19319b] rounded-full"></div>
           <h1 className="font-medium text-3xl md:text-4xl xl:text-6xl text-white">hello! im <span className="w-xl text-[#cf162e]">{intro?.name}</span></h1>
