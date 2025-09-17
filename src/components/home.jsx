@@ -28,7 +28,7 @@ export const Header = () => {
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
         <a href="/my-portfolio/projects" className="relative group text-sm sm:text-base lg:text-lg xl:text-lg text-[#ffffff]">Projects
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="#" className="relative group text-sm sm:text-base lg:text-lg xl:text-lg text-[#ffffff]">Contact
+        <a href="/my-portfolio/contact" className="relative group text-sm sm:text-base lg:text-lg xl:text-lg text-[#ffffff]">Contact
           <span className="sm:block absolute bottom-0 left-0 w-0 h-[1px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span></a>
       </div>
     </div>
