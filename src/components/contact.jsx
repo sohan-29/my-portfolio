@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Header } from "./home";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <>
     {location.pathname.includes("contact") && <Header />}
-    <div className="relative min-h-screen flex fext-col items-center justify-center bg-[#292929] text-white">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#292929] text-white">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
       <div className="absolute top-99 right-[69vw] w-23 h-23 md:top-16 md:left-3 md:w-14 md:h-14 lg:top-18 lg:left-3 lg:w-17 lg:h-17 xl:top-22 xl:left-7 xl:w-29 xl:h-29 bg-[#bf162dad] rounded-full"></div>
       <div className="absolute top-147 left-[9vw] w-47 h-47 md:top-0 md:left-6 md:w-29 md:h-29 lg:top-0 lg:left-7 lg:w-33 lg:h-33 xl:top-0 xl:left-9 xl:w-47 xl:h-47 bg-[#ca1931bd] rounded-full"></div>
       <div className="absolute bottom-19 left-[1vw] w-11 h-11 bg-[#ca19319b] md:top-auto md:bottom-11 md:right-47 md:left-auto md:w-9 md:h-9 lg:bottom-11 lg:right-69 lg:left-auto lg:w-10 lg:h-10 xl:bottom-11 xl:top-auto xl:left-auto xl:right-89 xl:w-13 xl:h-13 sm:bg-[#ca1931db] rounded-full"></div>
@@ -17,7 +21,60 @@ const Contact = () => {
       <div className="absolute top-26 right-[7vw] w-11 h-11 bg-[#ca19316a] md:top-143 md:bottom-auto md:right-11 md:w-12 md:h-12 lg:top-143 lg:right-19 lg:w-13 lg:h-13 xl:top-157 xl:right-24 xl:w-22 xl:h-22 sm:bg-[#ca19319b] rounded-full"></div>
       </div>
       <h1 className="text-4xl font-bold">Contact Page</h1>
-
+      <form className="mt-8 w-full max-w-md px-4 z-10">
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2" htmlFor="name">
+          Name
+        </label>
+        <input
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={(e) =>{setName(e.target.value)}}
+          placeholder="Your Name"
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2" htmlFor="email">
+          Email
+        </label>
+        <input
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) =>{setEmail(e.target.value)}}
+          placeholder="Your Email"
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2" htmlFor="message">
+          Message
+        </label>
+        <textarea
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          id="message"
+          name="message"
+          rows="4"
+          value={message}
+          placeholder="Your Message"
+          required
+          onChange={(e) =>{setMessage(e.target.value)}}
+        ></textarea>
+      </div>
+      <button
+        className="w-full bg-[#cf162ece] text-white px-4 py-2 rounded-md hover:bg-[#191919] hover:text-[#cf162e] transition-colors"
+        type="submit"
+        onClick={(e) => {e.preventDefault(); alert(`Message sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);}}
+      >
+        Send Message
+      </button>
+      </form>
     </div>
     </>
   );
