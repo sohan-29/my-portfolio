@@ -1,150 +1,118 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+const mongoose = require('mongoose');
 const app = express();
 const port = 3001;
+
 app.use(cors());
 app.use(express.json());
 
-// Function to read and parse CSV file properly - handles all carriage returns
-function parseCSV(data) {
-  // Handle Windows line endings (CRLF) by splitting on \r\n or \n
-  const lines = data.trim().split(/\r?\n/);
-  if (lines.length === 0) return [];
-  // Clean headers - remove quotes, trim whitespace, and clean field names
-  const headers = lines[0].split(',').map(header =>
-    header.trim().replace(/^"|"$/g, '').replace(/\r$/, '').trim()
-  );
-  const result = [];
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i];
-    const values = [];
-    let current = '';
-    let inQuotes = false;
+// 1. Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/portfolio_db');
 
-    for (let j = 0; j < line.length; j++) {
-      const char = line[j];
-      if (char === '"') {
-        inQuotes = !inQuotes;
-      } else if (char === ',' && !inQuotes) {
-        values.push(current.trim());
-        current = '';
-      } else {
-        current += char;
-      }
-    }
-    values.push(current.trim());
-    const obj = {};
-    headers.forEach((header, index) => {
-      let value = values[index] || '';
-      // Remove surrounding quotes if present
-      if (value.startsWith('"') && value.endsWith('"')) {
-        value = value.slice(1, -1);
-      }
-      // Handle escaped quotes
-      value = value.replace(/""/g, '"');
-      // Clean up ALL carriage returns and extra spaces
-      value = value.replace(/\r/g, '').trim();
-      obj[header] = value;
-    });
+// 2. Define Mongoose Schemas & Models
 
-    result.push(obj);
-  }
-  return result;
-}
+const introSchema = new mongoose.Schema({}, { strict: false });
+const Intro = mongoose.model('Intro', introSchema, 'intro');
 
-app.get('/api/intro', (req, res) => {
-  // Read CSV file and parse on server start
-  const csvFilePath = path.join(__dirname, 'intro.csv');
+const academicsSchema = new mongoose.Schema({}, { strict: false });
+const Academics = mongoose.model('Academics', academicsSchema, 'academics');
+
+const experienceSchema = new mongoose.Schema({}, { strict: false });
+const Experience = mongoose.model('Experience', experienceSchema, 'experience');
+
+const aboutSchema = new mongoose.Schema({}, { strict: false });
+const About = mongoose.model('About', aboutSchema, 'about');
+
+const skillsSchema = new mongoose.Schema({}, { strict: false });
+const Skills = mongoose.model('Skills', skillsSchema, 'skills');
+
+const projectsSchema = new mongoose.Schema({}, { strict: false });
+const Projects = mongoose.model('Projects', projectsSchema, 'projects');
+
+// 3. Update API endpoints to use MongoDB
+
+app.get('/api/intro', async (req, res) => {
   try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      res.status(200).json(parsedData[0]);
-    } else {
-      res.status(500).json({ error: 'Portfolio data not available' });
-    }
+    const data = await Intro.findOne();
+    if (data) {
+      const { _id, __v, ...rest } = data.toObject();
+      res.status(200).json(rest);
+    } else res.status(404).json({ error: 'No intro data found' });
   } catch (err) {
-    console.error('Error reading CSV file:', err);
+    res.status(500).json({ error: 'Error fetching intro data' });
   }
 });
 
-app.get('/api/academics', (req, res) => {
-  const csvFilePath = path.join(__dirname, 'academics.csv');
+app.get('/api/academics', async (req, res) => {
   try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      res.status(200).json(parsedData);
-    } else {
-      res.status(500).json({ error: 'Portfolio data not available' });
-    }
+    const data = await Academics.find();
+    if (data.length > 0) {
+      const filtered = data.map(doc => {
+        const { _id, __v, ...rest } = doc.toObject();
+        return rest;
+      });
+      res.status(200).json(filtered);
+    } else res.status(404).json({ error: 'No academics data found' });
   } catch (err) {
-    console.error('Error reading CSV file:', err);
-  }
-})
-
-app.get('/api/experience', (req, res) => {
-  const csvFilePath = path.join(__dirname, 'experience.csv');
-  try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      res.status(200).json(parsedData);
-    } else {
-      res.status(500).json({ error: 'Portfolio data not available' });
-    }
-  } catch (err) {
-    console.error('Error reading CSV file:', err);
+    res.status(500).json({ error: 'Error fetching academics data' });
   }
 });
 
-app.get('/api/about', (req, res) => {
-  const csvFilePath = path.join(__dirname, 'about.csv');
+app.get('/api/experience', async (req, res) => {
   try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      res.status(200).json(parsedData[0]);
-    } else {
-      res.status(500).json({ error: 'Portfolio data not available' });
-    }
+    const data = await Experience.find();
+    if (data.length > 0) {
+      const filtered = data.map(doc => {
+        const { _id, __v, ...rest } = doc.toObject();
+        return rest;
+      });
+      res.status(200).json(filtered);
+    } else res.status(404).json({ error: 'No experience data found' });
   } catch (err) {
-    console.error('Error reading CSV file:', err);
+    res.status(500).json({ error: 'Error fetching experience data' });
   }
 });
 
-app.get('/api/skills', (req, res) => {
-  const csvFilePath = path.join(__dirname, 'skills.csv');
+app.get('/api/about', async (req, res) => {
   try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      res.status(200).json(parsedData);
-    } else {
-      res.status(404).json({ error: 'No skills data found' });
-    }
+    const data = await About.findOne();
+    if (data) {
+      const { _id, __v, ...rest } = data.toObject();
+      res.status(200).json(rest);
+    } else res.status(404).json({ error: 'No about data found' });
   } catch (err) {
-    console.error('Error reading CSV file:', err);
-    res.status(500).json({ error: 'Portfolio data not available' });
+    res.status(500).json({ error: 'Error fetching about data' });
   }
 });
 
-app.get('/api/projects', (req, res) => {
-  const csvFilePath = path.join(__dirname, 'projects.csv');
+app.get('/api/skills', async (req, res) => {
   try {
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    const parsedData = parseCSV(csvData);
-    if (parsedData.length > 0) {
-      console.log(parsedData);
-      res.status(200).json(parsedData);
-    } else {
-      res.status(404).json({ error: 'No projects data found' });
-    }
+    const data = await Skills.find();
+    if (data.length > 0) {
+      const filtered = data.map(doc => {
+        const { _id, __v, ...rest } = doc.toObject();
+        return rest;
+      });
+      res.status(200).json(filtered);
+    } else res.status(404).json({ error: 'No skills data found' });
   } catch (err) {
-    console.error('Error reading CSV file:', err);
-    res.status(500).json({ error: 'Portfolio data not available' });
+    res.status(500).json({ error: 'Error fetching skills data' });
+  }
+});
+
+app.get('/api/projects', async (req, res) => {
+  try {
+    const data = await Projects.find();
+    if (data.length > 0) {
+      const filtered = data.map(doc => {
+        const { _id, __v, ...rest } = doc.toObject();
+        return rest;
+      });
+      res.status(200).json(filtered);
+    } else res.status(404).json({ error: 'No projects data found' });
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching projects data' });
   }
 });
 
