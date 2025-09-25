@@ -10,6 +10,14 @@ app.use(express.json());
 // 1. Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/portfolio_db');
 
+mongoose.connection.on('connected', () => {
+  console.log('MongoDB connected successfully');
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
 // 2. Define Mongoose Schemas & Models
 
 const introSchema = new mongoose.Schema({}, { strict: false });
@@ -29,6 +37,13 @@ const Skills = mongoose.model('Skills', skillsSchema, 'skills');
 
 const projectsSchema = new mongoose.Schema({}, { strict: false });
 const Projects = mongoose.model('Projects', projectsSchema, 'projects');
+
+const contactSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String
+}, { timestamps: true });
+const Contact = mongoose.model('Contact', contactSchema, 'contacts');
 
 // 3. Update API endpoints to use MongoDB
 
@@ -113,6 +128,39 @@ app.get('/api/projects', async (req, res) => {
     } else res.status(404).json({ error: 'No projects data found' });
   } catch (err) {
     res.status(500).json({ error: 'Error fetching projects data' });
+  }
+});
+
+app.get('/api/contacts', async (req, res) => {
+  try {
+    const data = await Contact.find();
+    const filtered = data.map(doc => {
+      const { _id, __v, ...rest } = doc.toObject();
+      return rest;
+    });
+    res.status(200).json(filtered);
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching contacts' });
+  }
+});
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: 'Name, email, and message are required' });
+    }
+    console.log(
+      `Received contact message:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
+    );
+    const newContact = new Contact({ name, email, message });
+    const savedContact = await newContact.save();
+    console.log('Contact saved with ID:', savedContact._id);
+
+    res.status(200).json({ success: true, status: 'Message received' });
+  } catch (err) {
+    console.error('Error saving contact:', err);
+    res.status(500).json({ success: false, error: 'Error saving contact data' });
   }
 });
 
