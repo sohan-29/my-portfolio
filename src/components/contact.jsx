@@ -7,15 +7,17 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("Please fill all fields!!");
   const sendMessage = async (e) => {
     e.preventDefault();
     try {
-      if (!name || !email || !message) {
-        toast.error('Please fill all fields!!');
+      if (!validateName(name) || !validateEmail(email) || !validateMessage(message)) {
+        toast.error(errorMessage);
         return;
       }
       const response = await axios.post('http://localhost:3001/api/contact', { name, email, message });
-      toast.success('Message sent successfully!');
+      toast.success('Your message reached successfully!');
+      setErrorMessage("Please fill all fields!!");
     } catch (error) {
       console.error('Error sending message:', error);
       toast.error('Failed to send message. Please try again later.');
@@ -24,6 +26,35 @@ const Contact = () => {
       setEmail("");
       setMessage("");
     }
+  };
+
+  const validateName = (value) => {
+    const regex = /^[a-zA-Z\s]*$/;
+    if (!regex.test(value)) {
+      setErrorMessage('Name can only contain letters and spaces.');
+      setName("");
+      return false;
+    }
+    return true;
+  };
+
+  const validateEmail = (value) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(value)) {
+      setErrorMessage('Please enter a valid email address.');
+      setEmail("");
+      return false;
+    }
+    return true;
+  };
+
+  const validateMessage = (value) => {
+    if (value.length >= 500) {
+      setErrorMessage('Message cannot exceed 500 characters.');
+      setMessage(value.slice(0, 500));
+      return false;
+    }
+    return true;
   };
 
   return (
