@@ -45,8 +45,8 @@ const LandingPage = () => {
           <div className="absolute left-[75vw] bottom-41 w-29 h-29 md:left-59 md:bottom-111 md:w-37 md:h-37 lg:left-65 lg:bottom-121 lg:w-40 lg:h-40 xl:bottom-143 xl:left-96 xl:w-54 xl:h-54 bg-[#bf162d] rounded-full"></div>
           <div className="absolute top-4 left-[39vw] w-6 h-6 md:top-18 md:left-24 md:w-9 md:h-9 lg:top-17 lg:left-27 lg:w-9 lg:h-9 xl:top-11 xl:left-33 xl:w-13 xl:h-13 bg-[#bf162ddb] rounded-full"></div>
           <div className="absolute top-11 right-[54vw] w-18 h-18 md:top-27 md:right-42 md:w-28 md:h-28 lg:top-23 lg:right-42 lg:w-36 lg:h-36 xl:top-19 xl:right-60 xl:w-54 xl:h-54 bg-[#ca1931ea] rounded-full"></div>
-          <img className="hidden sm:block z-10 sm:w-xl sm:h-xl rounded-full p-10 xl:mt-18 mt-11 md:mt-22 lg:mt-20" src='https://sohan-29.github.io/my-portfolio/profile.jpeg' alt="Profile image" />
-          <img className="shadow-[0_0_1rem_#ff162e] sm:hidden w-29 h-29 mt-11 mb-9 mx-auto border-lg border-[#cf162e] rounded-full" src='https://sohan-29.github.io/my-portfolio/profile.jpeg' alt="Profile image" />
+          <img className="hidden sm:block z-10 sm:w-xl sm:h-xl rounded-full p-10 xl:mt-18 mt-11 md:mt-22 lg:mt-20" src='https://sohan-29.github.io/profile.jpeg' alt="Profile image" />
+          <img className="shadow-[0_0_1rem_#ff162e] sm:hidden w-29 h-29 mt-11 mb-9 mx-auto border-lg border-[#cf162e] rounded-full" src='https://sohan-29.github.io/profile.jpeg' alt="Profile image" />
           <div className="absolute top-45 right-[13vw] w-11 h-11 bg-[#ca19316a] md:top-auto md:bottom-33 md:right-9 md:w-8 md:h-8 lg:bottom-36 lg:right-5 lg:w-9 lg:h-9 xl:bottom-29 xl:right-7 xl:w-13 xl:h-13 sm:bg-[#ca1931] rounded-full"></div>
           <div className="absolute md:bottom-17 md:left-37 md:w-22 md:h-22 lg:bottom-17 lg:left-47 lg:w-24 lg:h-24 xl:bottom-7 xl:left-59 xl:w-33 xl:h-33 bg-[#da1931dd] z-1 rounded-full"></div>
         </div>
