@@ -17,6 +17,30 @@ const collections = [
   'projects',
 ];
 
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i++; // skip next quote
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      result.push(current.trim().replace(/^"|"$/g, ''));
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  result.push(current.trim().replace(/^"|"$/g, ''));
+  return result;
+}
+
 async function seedCollection(collectionName) {
   const Model = mongoose.model(collectionName.charAt(0).toUpperCase() + collectionName.slice(1), genericSchema, collectionName);
   const csvFile = path.join(__dirname, `${collectionName}.csv`);
@@ -24,12 +48,12 @@ async function seedCollection(collectionName) {
     console.log(`File not found: ${csvFile}`);
     return;
   }
-  // Simple CSV to JSON conversion (assumes no commas in fields)
+  // CSV to JSON conversion with proper quote handling
   const csvData = fs.readFileSync(csvFile, 'utf8');
   const lines = csvData.trim().split(/\r?\n/);
-  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+  const headers = parseCSVLine(lines[0]);
   const docs = lines.slice(1).map(line => {
-    const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+    const values = parseCSVLine(line);
     const obj = {};
     headers.forEach((header, i) => {
       obj[header] = values[i] || '';

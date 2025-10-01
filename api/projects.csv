@@ -1,8 +1,4 @@
 id,name,description,img,link
-1,Portfolio Website,"A personal portfolio website showcasing my projects and skills.",./profile.jpeg,https://myportfolio.com
-2,Task Manager App,"A web application to manage daily tasks and to-dos.",./profile.jpeg,https://taskmanager.com
-3,E-commerce Platform,"An online platform for buying and selling products.",./profile.jpeg,https://ecommerce.com
-4,Blog Website,"A blogging platform to share articles and stories.",./profile.jpeg,https://blogwebsite.com
-5,Weather App,"A web application that provides weather forecasts.",./profile.jpeg,https://weatherapp.com
-6,Chat Application,"A real-time chat application for communication.",./profile.jpeg,https://chatapp.com
-7,Recipe Finder,"A web app to find and share cooking recipes.",./profile.jpeg,https://recipefinder.com
+1,Personal Portfolio Website,"A personal portfolio website built using React.js to showcase my projects, skills, and experience. It features a clean and modern design with responsive layouts for optimal viewing on all devices.","./my-portfolio.png","https://sohan-29.github.io/"
+2,Project NCC,"A web application developed for managing and organizing National Cadet Corps (NCC) activities. It includes features for event scheduling, member management, and communication tools.","./projectNCC.png",""
+3,Smart Resume Builder,"A smart resume builder application that helps users create professional resumes quickly and easily. It offers various templates and customization options to suit different job applications.","./resumeBuilder.png","https://smartresumebuilder-ai.netlify.app"
