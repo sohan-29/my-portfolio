@@ -60,7 +60,7 @@ const Contact = () => {
   return (
     <>
       {location.pathname.includes("contact") && <Header />}
-      <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#292929] text-white">
+      <div id="contact" className="relative min-h-screen flex flex-col items-center justify-center bg-[#292929] text-white">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
           <div className="absolute top-99 right-[69vw] w-23 h-23 md:top-16 md:left-3 md:w-14 md:h-14 lg:top-18 lg:left-3 lg:w-17 lg:h-17 xl:top-22 xl:left-7 xl:w-29 xl:h-29 bg-[#bf162dad] rounded-full"></div>
           <div className="absolute top-147 left-[9vw] w-47 h-47 md:top-0 md:left-6 md:w-29 md:h-29 lg:top-0 lg:left-7 lg:w-33 lg:h-33 xl:top-0 xl:left-9 xl:w-47 xl:h-47 bg-[#ca1931bd] rounded-full"></div>

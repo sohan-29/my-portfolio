@@ -25,7 +25,7 @@ const Projects = () => {
   return (
     <>
       {location.pathname.includes("projects") && <Header />}
-      <div className={`min-h-screen flex flex-col items-center bg-[#2b2b2b] text-white ${location.pathname.includes("projects") ? "overflow-hidden" : "overflow-hidden sm:overflow-visible"}`}>
+      <div id="projects" className={`min-h-screen flex flex-col items-center bg-[#2b2b2b] text-white ${location.pathname.includes("projects") ? "overflow-hidden" : "overflow-hidden sm:overflow-visible"}`}>
         <h1 className="text-5xl pt-22 mb-9 font-bold">Projects</h1>
         <div className="relative sm:mt-10">
           <div className="absolute top-3 right-[16vw] w-33 h-33 md:top-66 md:left-0 md:w-13 md:h-13 lg:top-60 lg:left-0 lg:w-18 lg:h-18 xl:top-57 xl:left-0 xl:w-29 xl:h-29 bg-[#bf162dad] rounded-full"></div>

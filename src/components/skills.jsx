@@ -29,7 +29,7 @@ const Skills = () => {
   return (
     <>
       {location.pathname.includes("skills") && <Header />}
-      <div className={`flex flex-col p-4 shadow-md bg-[#2e2e2e] text-white px-[7vw] h-full min-h-screen ${location.pathname.includes("skills") ? "overflow-hidden" : "overflow-hidden sm:overflow-visible"}`}>
+      <div id="skills" className={`flex flex-col p-4 shadow-md bg-[#2e2e2e] text-white px-[7vw] h-full min-h-screen ${location.pathname.includes("skills") ? "overflow-hidden" : "overflow-hidden sm:overflow-visible"}`}>
         <h2 className="text-[#eeeeeebe] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 mx-[1vw] mt-18 border-b-2 z-10">Skills</h2>
         <div className="relative sm:mt-10">
           <div className="absolute top-3 right-[16vw] w-33 h-33 | md:top-0 md:left-59 md:w-9 md:h-9 | lg:top-0 lg:left-69 lg:w-9 lg:h-9 | xl:top-0 xl:left-96 xl:w-15 xl:h-15 bg-[#bf162dad] rounded-full"></div>
