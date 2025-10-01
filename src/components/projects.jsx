@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "./home";
 
 const Projects = () => {
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,12 +38,17 @@ const Projects = () => {
         <div className="relative flex items-center justify-center w-full">
           <img className="h-6 sm:h-8 aspect-auto mt-5 sm:px-6 sm:py-2 cursor-pointer" src="./icons/leftArrow.svg" onClick={scrollLeft}></img>
           <div className="projectWindow flex w-[90%] mt-10 gap-7 overflow-x-scroll scrollbar-none py-4 cursor-pointer">
-            {data.map(project => (
-              <div key={project.id} onClick={() => setActiveProject(project.id)} style={{ backgroundImage: `url(${project.img})` }} className={`z-10 group h-57 min-w-44 aspect-auto sm:min-w-[27vw] sm:min-h-[33vh] bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg transition-shadow duration-300 ${activeProject === project.id ? " absolute top-7 w-[69vw] aspect-auto left-13.5 sm:left-[15%] min-w-[33vw] min-h-[44vh] overflow-y-scroll z-20" : ""}`}>
-                <button onClick={(e) => { e.stopPropagation(); setActiveProject(null) }} className={"absolute top-2 right-2 text-white w-7 h-7 flex items-center justify-center " + (activeProject === project.id ? "block" : "hidden")}>X</button>
-                <h2 className={"text-2xl font-semibold mb-4" + (activeProject === project.id ? " text-3xl" : " group-hover:text-3xl")}>{project.name}</h2>
-                <p className={"text-gray-300"+ (activeProject === project.id ? "" : " line-clamp-4")}>{project.description}</p>
+            {data.map((project, index) => (
+              <div key={index} onClick={() => setActiveProject(index)} className={`z-10 group h-57 min-w-44 aspect-auto sm:min-w-[27vw] sm:min-h-[33vh] bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg transition-shadow duration-300 backdrop-blur-md bg-black/18 border border-white/29 ${activeProject === index ? " absolute top-7 w-[69vw] aspect-auto left-13.5 sm:left-[15%] min-w-[33vw] min-h-[44vh] overflow-y-scroll z-20" : "overflow-hidden hover:shadow-2xl hover:scale-105"}`} >
+                <button onClick={(e) => { e.stopPropagation(); setActiveProject(null) }} className={"absolute top-2 right-2 text-white w-7 h-7 flex items-center justify-center " + (activeProject === index ? "block" : "hidden")}>X</button>
+                <h2 className={"text-2xl font-semibold mb-4" + (activeProject === index ? " text-3xl" : " group-hover:text-3xl")}>{project.name}</h2>
+                <div className="flex gap-2">
+                <div>
+                <p className={"text-gray-300" + (activeProject === index ? "" : " line-clamp-4")}>{project.description}</p>
                 <a href={project.link} className="hover:underline font-sm text-[#aaa] cursor-pointer">view project</a>
+                </div>
+                <img className={"h-29 aspect-auto" + (activeProject === index ? " h-40" : "")} src={project.img} alt={project.name}></img>
+                </div>
               </div>
             ))}
           </div>
