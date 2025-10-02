@@ -1,9 +1,13 @@
+require('dotenv').config({ path: './api/.env' });
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/portfolio_db');
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // Generic schema for all collections
 const genericSchema = new mongoose.Schema({}, { strict: false });

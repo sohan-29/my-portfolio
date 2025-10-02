@@ -1,14 +1,19 @@
+require('dotenv').config({ path: './api/.env' });
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-const port = 3001;
+const port = parseInt(process.env.PORT) || 3001;
 
 app.use(cors());
 app.use(express.json());
 
 // 1. Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/portfolio_db');
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 
 mongoose.connection.on('connected', () => {
   console.log('MongoDB connected successfully');
@@ -141,26 +146,6 @@ app.get('/api/contacts', async (req, res) => {
     res.status(200).json(filtered);
   } catch (err) {
     res.status(500).json({ error: 'Error fetching contacts' });
-  }
-});
-
-app.post('/api/contact', async (req, res) => {
-  try {
-    const { name, email, message } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required' });
-    }
-    console.log(
-      `Received contact message:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
-    );
-    const newContact = new Contact({ name, email, message });
-    const savedContact = await newContact.save();
-    console.log('Contact saved with ID:', savedContact._id);
-
-    res.status(200).json({ success: true, status: 'Message received' });
-  } catch (err) {
-    console.error('Error saving contact:', err);
-    res.status(500).json({ success: false, error: 'Error saving contact data' });
   }
 });
 
