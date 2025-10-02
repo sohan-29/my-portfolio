@@ -15,7 +15,7 @@ const Contact = () => {
         toast.error(errorMessage);
         return;
       }
-      const response = await axios.post('http://localhost:3001/api/contact', { name, email, message });
+      const response = await axios.post('https://my-portfolio-api-ahhw.onrender.com/api/contact', { name, email, message });
       toast.success('Your message reached successfully!');
       setErrorMessage("Please fill all fields!!");
     } catch (error) {
